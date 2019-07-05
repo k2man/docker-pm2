@@ -1,2 +1,2 @@
 # docker-pm2
-alpine, node, pm2, docker, 7z, curl, openssh-client
+alpine, node 9.9, pm2, docker, 7z, curl, openssh-client
