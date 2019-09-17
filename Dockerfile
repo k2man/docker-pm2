@@ -1,4 +1,4 @@
-FROM node:10.16.3-alpine
+FROM node:9.9-alpine
 LABEL maintainer="k2man <k2mani@gmail.com>"
 
 # Install pm2
