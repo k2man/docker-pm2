@@ -5,7 +5,7 @@ LABEL maintainer="k2mani <k2mani@gmail.com>"
 RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 RUN yum install -y nodejs wget
 
-# Install python, docker-ce, openssh-clients, docker-compose
+# Install python, docker-ce, openssh-clients
 RUN yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 RUN yum install -y python docker-ce openssh-clients
 RUN yum clean all -y
