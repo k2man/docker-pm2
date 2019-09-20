@@ -5,9 +5,12 @@ LABEL maintainer="k2mani <k2mani@gmail.com>"
 RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 RUN yum install -y nodejs wget
 
-# Install package
-RUN yum install -y python docker openssh-clients
+# Install python, docker-ce, openssh-clients, docker-compose
+RUN yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+RUN yum install -y python docker-ce openssh-clients
 RUN yum clean all -y
+RUN curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+RUN chmod +x /usr/bin/docker-compose
 
 # Install pm2
 RUN npm install -g pm2 node-gyp
