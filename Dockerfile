@@ -1,14 +1,26 @@
-FROM node:9.9-alpine
-LABEL maintainer="k2man <k2mani@gmail.com>"
+FROM centos:7
+LABEL maintainer="k2mani <k2mani@gmail.com>"
+
+# install Node
+RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+RUN yum install -y nodejs wget
+
+# Install package
+RUN yum install -y python docker
+RUN yum clean all -y
 
 # Install pm2
 RUN npm install -g pm2 node-gyp
 
-# Install package
-RUN apk add --no-cache --update p7zip python docker curl openssh-client execline
+# 7zip for Patch
+RUN wget https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-16.02-10.el7.x86_64.rpm
+RUN wget https://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/7/x86_64/Packages/p/p7zip-plugins-16.02-10.el7.x86_64.rpm
+RUN rpm -U --quiet p7zip-16.02-10.el7.x86_64.rpm
+RUN rpm -U --quiet p7zip-plugins-16.02-10.el7.x86_64.rpm
 
 ENV NODE_ENV production
 
+# EXPOSE 3000
 EXPOSE 443
 
 # change working directory
