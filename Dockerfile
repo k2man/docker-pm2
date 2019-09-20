@@ -6,7 +6,7 @@ RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 RUN yum install -y nodejs wget
 
 # Install package
-RUN yum install -y python docker
+RUN yum install -y python docker openssh-clients
 RUN yum clean all -y
 
 # Install pm2
