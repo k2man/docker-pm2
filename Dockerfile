@@ -7,7 +7,7 @@ RUN yum install -y nodejs wget
 
 # Install python, docker-ce, openssh-clients
 RUN yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-RUN yum install -y python docker-ce openssh-clients
+RUN yum install -y python docker-ce
 RUN yum clean all -y
 
 # Install pm2
