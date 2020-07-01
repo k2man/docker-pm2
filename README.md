@@ -7,3 +7,6 @@ centos 7.6, node 10.16.3, docker, 7z, openssh-client
 
 2.0
 centos 7, node 12, docker, 7z, openssh-client
+
+2.0.1
+centos 7, node 12, docker, 7z
